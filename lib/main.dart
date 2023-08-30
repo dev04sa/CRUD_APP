@@ -1,3 +1,4 @@
+import 'package:crud_app/login_screen.dart';
 import 'package:crud_app/student_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StudentPage(),
+      home: LoginScreen(),
     );
   }
 }

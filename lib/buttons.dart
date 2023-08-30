@@ -11,7 +11,7 @@ class Buttons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 90,
+      width: 95,
       height: 45,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(

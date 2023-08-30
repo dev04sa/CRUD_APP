@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crud_app/buttons.dart';
 import 'package:crud_app/helper.dart';
+import 'package:crud_app/login_screen.dart';
 import 'package:crud_app/text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +23,13 @@ class _StudentPageState extends State<StudentPage> {
   final CGPAController = TextEditingController();
   var sname, sid, sprogram, scgpa;
   bool isShow = false;
+
+  void logOut() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.popUntil(context, (route) => route.isFirst);
+    Navigator.pushReplacement(
+        context, CupertinoPageRoute(builder: (context) => LoginScreen()));
+  }
 
   @override
   void dispose() {
@@ -121,6 +130,13 @@ class _StudentPageState extends State<StudentPage> {
                   backgroundImage: AssetImage("assets/images/graduated.png"),
                   radius: 80,
                 ),
+              ),
+              Buttons(
+                Btntext: "LogOut",
+                color: Colors.red,
+                onclick: () {
+                  logOut();
+                },
               ),
               SizedBox(
                 height: 20,
